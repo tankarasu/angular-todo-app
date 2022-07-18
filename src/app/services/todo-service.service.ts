@@ -14,6 +14,7 @@ export class TodoServiceService {
   todoList: any = {};
   displayedTodos: any = {};
   filterValue: string = "all";
+  edition: boolean = false;
 
   constructor(private http: HttpClient) { }
 
@@ -43,10 +44,6 @@ export class TodoServiceService {
 
   getTodos(): Observable<Object> {
     return this.http.get("https://dummyjson.com/todos");
-  }
-
-  getSpecificTodo(id: number): Observable<Object> {
-    return this.http.get(`https://dummyjson.com/todos/${id}`);
   }
 
   createTodo(todo: Todo): Observable<Object> {

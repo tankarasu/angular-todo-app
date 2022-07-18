@@ -12,7 +12,7 @@ import { Todo } from '../../models/todo';
   <mat-card class="todo-card">
     <mat-card-content>
       <p>{{this.todo.todo}}</p>
-      <button mat-icon-button color="primary">
+      <button mat-icon-button color="primary" (click)="this.openEdition()">
         <mat-icon color="primary">edit</mat-icon>
       </button>
 
@@ -24,6 +24,11 @@ import { Todo } from '../../models/todo';
       <button mat-icon-button color="primary" (click)="this.todoService.deleteTodo(this.todo.id)">
         <mat-icon color="warn">delete</mat-icon>
       </button>
+
+      <mat-form-field *ngIf="this.onEdition">
+        <mat-label>edit your Todo</mat-label>
+        <textarea matInput placeholder={{this.todo.todo}} [(ngModel)]="this.todo.todo" name="todo"></textarea>
+      </mat-form-field>
     </mat-card-content>
   </mat-card>
   `,
@@ -35,10 +40,15 @@ import { Todo } from '../../models/todo';
 })
 export class TodoComponent implements OnInit {
   @Input() todo!: Todo;
+  onEdition: boolean = false;
 
   constructor(public todoService: TodoServiceService) { }
 
   ngOnInit(): void {
+  }
+
+  openEdition(): void {
+    this.onEdition = !this.onEdition;
   }
 
 }
