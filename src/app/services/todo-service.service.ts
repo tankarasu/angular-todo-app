@@ -15,6 +15,7 @@ export class TodoServiceService {
   displayedTodos: any = {};
   filterValue: string = "all";
   edition: boolean = false;
+  newTodo: string = "";
 
   constructor(private http: HttpClient) { }
 
@@ -46,12 +47,17 @@ export class TodoServiceService {
     return this.http.get("https://dummyjson.com/todos");
   }
 
-  createTodo(todo: Todo): Observable<Object> {
-    return this.http.post("https://dummyjson.com/todos", todo);
-  }
+  createTodo(): void {
+    if(this.newTodo !== ""){const todo: Todo = {
+      id: this.todoList.todos.length + 1,
+      todo: this.newTodo,
+      completed: false,
+      userId: 1
+    };
 
-  updateTodo(id: number, completed: boolean): Observable<Object> {
-    return this.http.put(`https://dummyjson.com/todos/${id}`, { completed });
+    this.todoList.todos = [...this.todoList.todos, todo];
+    this.displayTodos(this.filterValue);
+    this.newTodo = "";}
   }
 
   deleteTodo(id: number): void {
