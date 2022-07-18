@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 
+// Angular Material Module Requirements
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 // Internals requirements
 import { Todo } from '../models/todo';
 
@@ -17,7 +20,7 @@ export class TodoServiceService {
   edition: boolean = false;
   newTodo: string = "";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _snackBar: MatSnackBar) { }
 
   displayTodos(value: string = "all") {
     this.filterValue = value;
@@ -48,20 +51,28 @@ export class TodoServiceService {
   }
 
   createTodo(): void {
-    if(this.newTodo !== ""){const todo: Todo = {
-      id: this.todoList.todos.length + 1,
-      todo: this.newTodo,
-      completed: false,
-      userId: 1
-    };
+    if (this.newTodo !== "") {
+      const todo: Todo = {
+        id: this.todoList.todos.length + 1,
+        todo: this.newTodo,
+        completed: false,
+        userId: 1
+      };
 
-    this.todoList.todos = [...this.todoList.todos, todo];
-    this.displayTodos(this.filterValue);
-    this.newTodo = "";}
+      this.todoList.todos = [...this.todoList.todos, todo];
+      this.displayTodos(this.filterValue);
+      this.newTodo = "";
+      this.openSnackBar("Todo created");
+    }
   }
 
   deleteTodo(id: number): void {
     this.todoList.todos = this.todoList.todos.filter((todo: Todo) => todo.id !== id);
     this.displayTodos(this.filterValue);
+    this.openSnackBar("Todo deleted");
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, "", { duration: 2000 });
   }
 }
