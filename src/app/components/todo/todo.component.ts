@@ -21,7 +21,7 @@ import { Todo } from '../../models/todo';
         (change)="this.todoService.onComplete(this.todo)">
       </mat-checkbox>
 
-      <button mat-icon-button color="primary">
+      <button mat-icon-button color="primary" (click)="this.todoService.deleteTodo(this.todo.id)">
         <mat-icon color="warn">delete</mat-icon>
       </button>
     </mat-card-content>

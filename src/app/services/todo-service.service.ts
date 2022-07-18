@@ -11,12 +11,12 @@ import { Todo } from '../models/todo';
 })
 
 export class TodoServiceService {
-  todoList: any = [];
-  displayedTodos: any = [];
+  todoList: any = {};
+  displayedTodos: any = {};
   filterValue: string = "all";
 
   constructor(private http: HttpClient) { }
-  
+
   displayTodos(value: string = "all") {
     this.filterValue = value;
     switch (this.filterValue) {
@@ -34,10 +34,8 @@ export class TodoServiceService {
 
   onComplete(todo: Todo): void {
     for (let singleTodo of this.todoList.todos) {
-      if (singleTodo.id === todo.id) {
-        singleTodo.completed = !singleTodo.completed;
-        console.log(singleTodo);
-      }
+      if (singleTodo.id === todo.id)
+        singleTodo.completed = !singleTodo.completed
     }
 
     this.displayTodos(this.filterValue);
@@ -59,7 +57,8 @@ export class TodoServiceService {
     return this.http.put(`https://dummyjson.com/todos/${id}`, { completed });
   }
 
-  deleteTodo(id: number): Observable<Object> {
-    return this.http.delete(`https://dummyjson.com/todos/${id}`);
+  deleteTodo(id: number): void {
+    this.todoList.todos = this.todoList.todos.filter((todo: Todo) => todo.id !== id);
+    this.displayTodos(this.filterValue);
   }
 }
