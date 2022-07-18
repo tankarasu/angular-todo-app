@@ -1,5 +1,6 @@
 // Angular Core Module Requirements
 import { Component, OnInit, Input } from '@angular/core';
+import { TodoServiceService } from 'src/app/services/todo-service.service';
 
 // Internals requirements
 import { Todo } from '../../models/todo';
@@ -14,7 +15,12 @@ import { Todo } from '../../models/todo';
       <button mat-icon-button color="primary">
         <mat-icon color="primary">edit</mat-icon>
       </button>
-      <mat-checkbox color="primary"></mat-checkbox>
+
+      <mat-checkbox color="primary"
+        [checked]="this.todo.completed"
+        (change)="this.todoService.onComplete(this.todo)">
+      </mat-checkbox>
+
       <button mat-icon-button color="primary">
         <mat-icon color="warn">delete</mat-icon>
       </button>
@@ -30,7 +36,7 @@ import { Todo } from '../../models/todo';
 export class TodoComponent implements OnInit {
   @Input() todo!: Todo;
 
-  constructor() { }
+  constructor(public todoService: TodoServiceService) { }
 
   ngOnInit(): void {
   }
