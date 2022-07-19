@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // Internals requirements
@@ -21,6 +22,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoComponent } from './components/todo/todo.component';
+import { SwitchStateComponent } from './components/switch-state/switch-state.component';
+import { AddTodoComponent } from './components/add-todo/add-todo.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import { TodoComponent } from './components/todo/todo.component';
     HeaderComponent,
     TodoListComponent,
     TodoComponent,
+    SwitchStateComponent,
+    AddTodoComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +45,7 @@ import { TodoComponent } from './components/todo/todo.component';
     MatCheckboxModule,
     MatButtonModule,
     MatIconModule,
+    MatGridListModule,
     MatButtonToggleModule,
     MatInputModule,
     HttpClientModule

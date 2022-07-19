@@ -34,7 +34,7 @@ import { Todo } from '../../models/todo';
   `,
 
   styles: [
-    `.todo-card {max-width: 300px; margin: 10px;}`
+    `.todo-card {max-width: 300px; margin: 15px 0px;border-radius: 15px;}`
   ]
 
 })

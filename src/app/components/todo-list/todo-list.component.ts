@@ -8,6 +8,7 @@ import { TodoServiceService } from 'src/app/services/todo-service.service';
 @Component({
   selector: 'app-todo-list',
   template: `
+    <app-switch-state></app-switch-state>
     <ul>
       <li *ngFor="let todo of this.todoService.displayedTodos.todos">
         <app-todo [todo]="todo"></app-todo>
@@ -16,7 +17,7 @@ import { TodoServiceService } from 'src/app/services/todo-service.service';
   `,
 
   styles: [
-    `ul {list-style: none; padding: 10px;}`
+    `ul {list-style: none; padding: 0px;}`
   ]
 })
 
