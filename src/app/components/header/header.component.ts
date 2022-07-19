@@ -8,7 +8,7 @@ import { TodoServiceService } from 'src/app/services/todo-service.service';
     <app-add-todo></app-add-todo>
   `,
   styles: [
-    'h2 {color: red; font-size: 18px;}}'
+    'h2 {color: #673ab7; font-size: 36px; text-align: center}}'
   ]
 })
 

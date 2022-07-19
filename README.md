@@ -1,27 +1,36 @@
-# AngularTodoApp
+# Angular Todo App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
+## What is it?
 
-## Development server
+Angular Todo App is a simple todo list app built with Angular. He's here for helping me learn Angular.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## How do I use it?
 
-## Code scaffolding
+It's very obvious to use it, for example, just add a new todo item to the list.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+After adding the angular CLI, you go to the root of the project and then:
 
-## Build
+```bash
+$ ng serve
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Application will run on http://localhost:4200
 
-## Running unit tests
+## Versions and Features
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
+### version 1.0.0
+this version use a placeholder to mock the database. The mock come from **https://dummyjson.com** It's possible to have some issues on Put methods. 
 
-## Running end-to-end tests
+ Only Get methods comes from server. The others methods are simulated on the server and not relevant for the application.   
+ 
+ When other version comes, obviously with a local API in **NodeJs or Java** problems will be solved. 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+ For the design we use **Angular Material package**.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Read all todos
+- delete a todo
+- edit a todo
+- create a todo
+- filter by done or not done
+---

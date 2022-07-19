@@ -7,4 +7,6 @@ const routes: Routes = [];
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
+// Not in use for now, perhaps later
 export class AppRoutingModule { }

@@ -11,9 +11,9 @@ import { TodoServiceService } from 'src/app/services/todo-service.service';
           <input matInput #message maxlength="256" [(ngModel)]="this.todoService.newTodo">
           <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
           <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
-  </mat-form-field>
+        </mat-form-field>
       </mat-grid-tile>
-      <mat-grid-tile colspan="1" rowspan="1" style.background="#0F0">
+      <mat-grid-tile colspan="1" rowspan="1">
         <button mat-stroked-icon-button color="primary" (click)="this.todoService.createTodo()">
           <mat-icon color="primary" class="button-add">add</mat-icon>
         </button>
@@ -26,6 +26,10 @@ import { TodoServiceService } from 'src/app/services/todo-service.service';
     ".button-add {font-size: 30px;}",
   ]
 })
+
+/**
+ * this component represent the input and the add button in order to create a new todo
+ */
 export class AddTodoComponent implements OnInit {
 
   constructor(public todoService: TodoServiceService) { }
